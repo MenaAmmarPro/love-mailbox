@@ -1,0 +1,219 @@
+/* love-mailbox — page styles (built on css/theme.css) */
+
+.mailbox-hero {
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.small-caption {
+  max-width: 44ch;
+  margin: 0.35rem auto 0.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- meta chips ---------- */
+
+.mailbox-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+.mailbox-chip {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.82rem;
+}
+
+.mailbox-chip strong {
+  color: var(--pink);
+}
+
+/* ---------- letters ---------- */
+
+.letter-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.letter {
+  padding: 1.2rem 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+}
+
+.letter.is-sealed {
+  background: linear-gradient(150deg, rgba(255, 182, 216, 0.1), rgba(255, 255, 255, 0.02));
+}
+
+.letter-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.envelope {
+  position: relative;
+  flex: 0 0 auto;
+  width: 66px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  overflow: hidden;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 159, 207, 0.35) 49.5%, transparent 50%),
+    linear-gradient(225deg, rgba(255, 159, 207, 0.35) 49.5%, transparent 50%);
+}
+
+.letter.is-open .envelope::before {
+  background: none;
+  border-bottom: 1px solid var(--line);
+  top: -46px;
+}
+
+.seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 40% 35%, #ff9fd0, #c8619b);
+  box-shadow: 0 0 8px rgba(255, 114, 184, 0.6);
+}
+
+.letter.is-open .seal {
+  opacity: 0.35;
+  filter: grayscale(0.6);
+}
+
+.letter-headings {
+  min-width: 0;
+}
+
+.letter-title {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.12rem;
+}
+
+.letter-date {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.letter-body {
+  margin: 1rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line);
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.letter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.letter-open {
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.05rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  cursor: pointer;
+}
+
+.letter-open:disabled {
+  opacity: 0.5;
+  cursor: default;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+}
+
+.letter-remove {
+  border: none;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.76rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.letter-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ---------- write form ---------- */
+
+.write-form {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 620px;
+  margin-top: 1.6rem;
+}
+
+.field {
+  display: block;
+}
+
+.field > span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--pink);
+}
+
+.write-form .button {
+  justify-self: start;
+}
+
+/* ---------- responsive ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .letter {
+    transition: none;
+  }
+}
