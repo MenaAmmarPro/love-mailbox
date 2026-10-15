@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b20">
+  <meta name="description" content="Letters for Later — sealed notes that open on a date you choose, kept just for Mena.">
+  <title>Letters for Later ✦ Love for Mena</title>
+  <link rel="canonical" href="https://menaammarpro.github.io/love-mailbox/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Letters for Later — for Mena">
+  <meta property="og:title" content="Letters for Later ✦ Love for Mena">
+  <meta property="og:description" content="Sealed notes that open on a date you choose.">
+  <meta property="og:url" content="https://menaammarpro.github.io/love-mailbox/">
+  <meta property="og:image" content="https://menaammarpro.github.io/love-mailbox/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Letters for Later — notes that wait">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Letters for Later ✦ Love for Mena">
+  <meta name="twitter:description" content="Sealed notes that open on a date you choose.">
+  <meta name="twitter:image" content="https://menaammarpro.github.io/love-mailbox/assets/og-image.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/theme-main.js" defer></script>
+  <script src="js/effects.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Letters for Later">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">✉ Letters for Later</a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="#mailbox">The mailbox</a>
+      <a href="#write">Write a letter</a>
+      <a href="#details">Details</a>
+      <a href="https://menaammarpro.github.io/loveformymena/">Our little universe ↗</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero mailbox-hero">
+      <p class="eyebrow">NOTES THAT WAIT</p>
+      <div class="moon" aria-hidden="true">✉</div>
+      <p class="small-caption">Write today, read when the day is right.</p>
+      <h1>Letters for <span>later.</span></h1>
+      <p class="hero-description">
+        Sometimes the right words shouldn't arrive right away. Write a letter,
+        pick the day it should open, and seal it. The mailbox will keep it safe
+        until then — no peeking, not even from me.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#write">Write a letter <span>♥</span></a>
+        <a class="button button-ghost" href="#mailbox">Open the mailbox</a>
+      </div>
+      <p class="signature">Made with love, just for you <span>♥</span></p>
+    </section>
+
+    <section class="section" id="mailbox">
+      <p class="eyebrow">THE MAILBOX</p>
+      <h2>Our <span>letters.</span></h2>
+      <p class="section-copy">A letter opens on its day — or any day after. Sealed ones wait patiently.</p>
+      <div class="mailbox-meta">
+        <span class="mailbox-chip"><strong id="letter-count">0</strong> letters</span>
+        <span class="mailbox-chip"><strong id="sealed-count">0</strong> still sealed</span>
+      </div>
+      <div class="letter-list" id="mailbox-list"></div>
+      <p class="section-note" id="mailbox-note" aria-live="polite"></p>
+    </section>
+
+    <section class="section" id="write">
+      <p class="eyebrow">WRITE ONE NOW</p>
+      <h2>Write a <span>letter.</span></h2>
+      <p class="section-copy">Give it a title if you like, choose the day it opens, and seal it.</p>
+      <div class="write-form">
+        <label class="field">
+          <span>Title (optional)</span>
+          <input type="text" id="new-title" maxlength="60" placeholder="For the day you miss me" aria-label="Letter title">
+        </label>
+        <label class="field">
+          <span>Your words</span>
+          <textarea id="new-body" maxlength="2000" rows="6" placeholder="Say the thing you'd want her to read later…" aria-label="Letter body"></textarea>
+        </label>
+        <label class="field">
+          <span>Open on</span>
+          <input type="date" id="open-date" aria-label="Date this letter should open">
+        </label>
+        <button class="button button-primary" id="seal-letter" type="button">Seal the letter <span>♥</span></button>
+      </div>
+      <p class="section-note" id="write-note" aria-live="polite"></p>
+    </section>
+
+    <section class="section" id="details">
+      <p class="eyebrow">JUST FOR US</p>
+      <h2>Details.</h2>
+      <div class="settings-actions">
+        <button class="button button-ghost" id="share-button" type="button">Share this page</button>
+        <button class="button button-ghost" id="reset-mailbox" type="button">Empty the mailbox</button>
+      </div>
+      <p class="settings-note" id="save-note" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with care <span>♥</span> for Mena</p>
+    <p class="footer-small">A little universe of its own ✦</p>
+  </footer>
+</body>
+</html>
